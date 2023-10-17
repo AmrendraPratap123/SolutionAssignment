@@ -1,0 +1,178 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">	
+	<style>
+		body {
+			background-color: rgb(27, 172, 225);
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		button {
+			background-color: #05c46b;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			width: 30%;
+			margin-top: 30px;
+			margin-bottom: 10px;
+		}
+	</style>
+	<script>
+		function func1(){
+			var data1=document.getElementById('formdata');
+			data1.addEventListener('click',(x)=>{
+				var fname=document.getElementById('firstname').value;
+				var lname=document.getElementById('lastname').value;
+				var emailid=document.getElementById('emailid').value;
+				var mobile=document.getElementById('mobile').value;
+				var date=document.getElementById('date').value;
+				var country=document.getElementById('country').value;
+				var profession=document.getElementById('profession').value;
+				var gender=document.getElementById('gender').value;
+				let arr=[];
+				if(fname==''){
+					arr.push('First Name not found\n');
+				}
+				if(lname==''){
+					arr.push('Last Name not found\n');
+				}
+				if(emailid==''){
+					arr.push('email not found \n');
+				}
+				if(mobile==''){
+					arr.push('mobile not found \n');
+				}
+				if(country==''){
+					arr.push('Country not found \n');
+				}
+				if(date==''){
+					arr.push('Date not found..\n');
+				}
+				if(gender==''){
+					arr.push('gender not found\n');
+				}
+				if(profession==''){
+					arr.push('profession missing..');
+				}
+				if(arr.length!=0){
+					alert(arr.toString());
+				}
+				else if(arr.length==0){
+					alert(`FirstName ${fname} \n LastName ${lname}\n EmailId: ${emailid} \n Mobile: ${mobile} \n Country: ${country} \n Gender: ${gender} \n Profession ${profession}.`);
+				}
+				arr=[];
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Survey Form</h1>
+
+	<!-- Create Form -->
+	<form id="formdata" method="post">
+
+		<div class="form-control">
+			<label for="firstName"  >
+				First Name
+			</label>
+			<input type="text" placeholder="Enter First Name" id="firstname" required>
+		</div>
+		<div class="form-control">
+			<label for="lastName" >
+				Last Name
+			</label>
+			<input type="text" placeholder="Enter Last Name" id="lastname" required>
+		</div>
+
+		<div class="form-control">
+			<label for="email" >
+				Email
+			</label>
+			<input type="email" placeholder="Enter email ID" id="emailid" required>
+		</div>
+		<div class="form-control">
+			<label for="mobile" >
+				Mobile
+			</label>
+			<input type="text" placeholder="Enter mobile No." id="mobile" required>
+		</div>
+
+		<div class="form-control">
+			<label for="dob">
+                DOB
+			</label>
+			<input type="date" id="date" required>
+		</div>
+
+		<div class="form-control">
+			<label for="country">
+                Country
+			</label>
+			<select id="country" required> 
+				<option > --Choose Country-- </option>
+				<option value="INDIA">INDIA</option>
+				<option value="USA">USA</option>
+			</select>				
+		</div>
+<div class="form-control">
+	<input type="radio" id="gender" name="gender" value="Male" required>
+	  <label for="html">Male</label><br>
+	  <input type="radio" id="gender" name="gender" value="Female" required>
+	  <label for="css">Female</label><br>
+</div>
+        <div class="form-control">
+            <label for="profession">Profession</label>
+            <input type="text" name="profession" placeholder="Enter Profession" id="profession" required>
+		</div>
+		<button  onclick=func1()>
+			Submit
+		</button>
+        <button type="reset" style="background-color: red;">
+			Cancel
+		</button>
+	</form>
+</body>
+</html>
